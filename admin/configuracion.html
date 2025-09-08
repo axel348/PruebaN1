@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Panel de Administración | Barber Legacy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/admin.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../img.png/ChatGPT Image 4 sept 2025, 19_46_22.png" alt="Barber Legacy Logo" class="sidebar-logo">
+                <h3 class="admin-name">Admin Panel</h3>
+                <p class="admin-role">Administrador</p>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="ventas.html" class="menu-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Ventas</span>
+                </a>
+                <a href="productos.html" class="menu-item">
+                    <i class="fas fa-box"></i>
+                    <span>Productos</span>
+                </a>
+                <a href="clientes.html" class="menu-item">
+                    <i class="fas fa-users"></i>
+                    <span>Clientes</span>
+                </a>
+                <a href="configuracion.html" class="menu-item active">
+                    <i class="fas fa-cog"></i>
+                    <span>Configuración</span>
+                </a>
+                <a href="login.html" class="menu-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-content">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar configuración...">
+                </div>
+                <div class="header-right">
+                    <div class="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="../img/admin-profile.jpg" alt="Admin Profile" class="profile-img">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="admin-main">
+            <h1 class="section-title">Configuración del Sistema</h1>
+
+            <!-- Configuración General -->
+            <div class="admin-form mb-4">
+                <h2 class="table-title mb-4">Configuración General</h2>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nombre de la Tienda</label>
+                            <input type="text" class="form-control" value="Barber Legacy">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Email de Contacto</label>
+                            <input type="email" class="form-control" value="contacto@barberlegacy.com">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" value="555-0100">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Dirección</label>
+                            <input type="text" class="form-control" value="Calle Principal #123">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label class="form-label">Logo de la Tienda</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control">
+                                <button class="btn btn-primary-admin" type="button">Subir</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Configuración de Pagos -->
+            <div class="admin-form mb-4">
+                <h2 class="table-title mb-4">Configuración de Pagos</h2>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Moneda</label>
+                            <select class="form-control">
+                                <option value="USD">USD - Dólar Estadounidense</option>
+                                <option value="EUR">EUR - Euro</option>
+                                <option value="MXN">MXN - Peso Mexicano</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Método de Pago Predeterminado</label>
+                            <select class="form-control">
+                                <option>Tarjeta de Crédito</option>
+                                <option>PayPal</option>
+                                <option>Transferencia Bancaria</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Configuración de Notificaciones -->
+            <div class="admin-form mb-4">
+                <h2 class="table-title mb-4">Configuración de Notificaciones</h2>
+                <form>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" checked>
+                                <label class="form-check-label">Notificaciones de nuevas ventas</label>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" checked>
+                                <label class="form-check-label">Alertas de stock bajo</label>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" checked>
+                                <label class="form-check-label">Informes diarios por email</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Configuración de Seguridad -->
+            <div class="admin-form">
+                <h2 class="table-title mb-4">Configuración de Seguridad</h2>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Contraseña Actual</label>
+                            <input type="password" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nueva Contraseña</label>
+                            <input type="password" class="form-control">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Confirmar Nueva Contraseña</label>
+                            <input type="password" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary-admin">
+                                <i class="fas fa-save"></i> Guardar Cambios
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

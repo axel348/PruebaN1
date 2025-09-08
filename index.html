@@ -1,0 +1,462 @@
+<!--
+    ========================================== 
+    DOCUMENTO HTML PRINCIPAL
+    Este es el archivo principal de tu tienda online.
+    Incluye:
+    - Configuración SEO
+    - Enlaces a CSS y JavaScript
+    - Estructura principal del sitio
+    ==========================================
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Legacy - Tu Tienda de Productos para Barbería</title>
+    
+    <!-- Etiquetas SEO - Personaliza estas descripciones según tu negocio -->
+    <meta name="description" content="Tu tienda online de productos profesionales para barbería. Encontrarás las mejores marcas y herramientas para el cuidado de la barba y el cabello.">
+    <meta name="keywords" content="barbería, productos para barba, cuidado del cabello, afeitado, grooming">
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Nuestro CSS personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- CSS del botón de administrador -->
+    <link rel="stylesheet" href="css/admin-button.css">
+</head>
+<body>
+    <!--
+        ==========================================
+        BARRA SUPERIOR
+        Contiene información de contacto y redes sociales
+        Puedes personalizar:
+        - Número de teléfono
+        - Correo electrónico
+        - Enlaces a redes sociales
+        ==========================================
+    -->
+    <div class="top-bar bg-dark text-light py-2">
+        <div class="container">
+            <div class="row">
+                <!-- Información de contacto -->
+                <div class="col-md-6">
+                    <i class="fas fa-phone-alt me-2"></i> +56 9 62875480
+                    <i class="fas fa-envelope ms-3 me-2"></i> BarberLegacy@barbershop.cl
+                </div>
+                <!-- Redes sociales -->
+                <div class="col-md-6 text-end">
+                    <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra de navegación principal -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <!-- Logo de la empresa -->
+            <a class="navbar-brand" href="index.html">
+                <img src="img.png/ChatGPT Image 4 sept 2025, 19_46_22.png" alt="Barber Legacy Logo" height="50" class="d-inline-block align-top">
+            </a>
+            
+            <!-- Botón hamburguesa para móviles -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menú de navegación -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Registrarse</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productosDropdown" role="button" data-bs-toggle="dropdown">
+                            Productos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="productos.html#cuidado-barba">Cuidado de Barba</a></li>
+                            <li><a class="dropdown-item" href="productos.html#cuidado-cabello">Cuidado del Cabello</a></li>
+                            <li><a class="dropdown-item" href="productos.html#afeitado">Afeitado</a></li>
+                            <li><a class="dropdown-item" href="productos.html#accesorios">Accesorios</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+                <!-- Carrito de compras y búsqueda -->
+                <div class="d-flex align-items-center">
+                    <div class="search-box me-3">
+                        <input type="text" class="form-control" placeholder="Buscar...">
+                    </div>
+                    <a href="carrito.html" class="cart-btn position-relative">
+                        <i class="fas fa-shopping-cart fs-5"></i>
+                        <span class="cart-badge badge rounded-pill">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+        Hero Section con Slider 
+        Aquí puedes cambiar:
+        - Las imágenes del carrusel
+        - Los textos de cada slide
+        - Los botones y sus enlaces
+    -->
+    <section class="hero-section">
+        <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <!-- Primer slide -->
+                <div class="carousel-item active">
+                    <img src="img.png/BANER-WEB-TDB-des.jpg" class="d-block w-100" alt="Banner principal">
+                    <div class="carousel-caption">
+                        <h1 class="display-4 fw-bold">Productos Premium para Barbería</h1>
+                        <p class="lead">Descubre nuestra selección de productos profesionales</p>
+                        <a href="productos.html" class="btn btn-primary btn-lg">Ver Productos</a>
+                    </div>
+                </div>
+                <!-- Segundo slide -->
+                <div class="carousel-item">
+                    <img src="img.png/BANER-WEB-TDB-FADE.jpg" class="d-block w-100" alt="Ofertas especiales">
+                    <div class="carousel-caption">
+                        <h2 class="display-4 fw-bold">Ofertas Especiales</h2>
+                        <p class="lead">Hasta 30% de descuento en productos seleccionados</p>
+                        <a href="productos.html#ofertas" class="btn btn-primary btn-lg">Ver Ofertas</a>
+                    </div>
+                </div>
+                <!-- Tercer slide -->
+                <div class="carousel-item">
+                    <img src="img.png/slide-2-1-800x384.jpg" class="d-block w-100" alt="Nuevos productos">
+                    <div class="carousel-caption">
+                        <h2 class="display-4 fw-bold">Nuevos Productos</h2>
+                        <p class="lead">Conoce las últimas novedades en nuestra tienda</p>
+                        <a href="productos.html#nuevos" class="btn btn-primary btn-lg">Ver Novedades</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- 
+        Categorías Destacadas 
+        Sección que muestra las principales categorías de productos
+        Cada categoría tiene:
+        - Imagen de fondo
+        - Título
+        - Botón de enlace
+        - Efecto de hover con overlay
+    -->
+    <section class="categories py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Categorías Populares</h2>
+            <div class="row">
+                <!-- Kit Barba -->
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="category-card">
+                        <img src="img.png/kitbarba.webp" alt="Kit de Barba" class="img-fluid">
+                        <div class="category-overlay">
+                            <h3>Kit de Barba</h3>
+                            <p class="mb-2">Sets completos para el cuidado de tu barba</p>
+                            <a href="productos.html#kit-barba" class="btn btn-outline-light">Ver Kits</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cuidado del Cabello -->
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="category-card">
+                        <img src="img.png/cuidado de cabello.webp" alt="Cuidado del Cabello" class="img-fluid">
+                        <div class="category-overlay">
+                            <h3>Cuidado del Cabello</h3>
+                            <p class="mb-2">Productos para un cabello perfecto</p>
+                            <a href="productos.html#cabello" class="btn btn-outline-light">Ver Productos</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Afeitado -->
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="category-card">
+                        <img src="img.png/afeitado.webp" alt="Afeitado" class="img-fluid">
+                        <div class="category-overlay">
+                            <h3>Afeitado</h3>
+                            <p class="mb-2">Todo para un afeitado profesional</p>
+                            <a href="productos.html#afeitado" class="btn btn-outline-light">Ver Productos</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Accesorios -->
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="category-card">
+                        <img src="img.png/accesorios barberia.webp" alt="Accesorios de Barbería" class="img-fluid">
+                        <div class="category-overlay">
+                            <h3>Accesorios</h3>
+                            <p class="mb-2">Herramientas y accesorios profesionales</p>
+                            <a href="productos.html#accesorios" class="btn btn-outline-light">Ver Accesorios</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section class="featured-products py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Productos Destacados</h2>
+            <div class="row">
+                <!-- Producto 1 -->
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card" data-product-id="1" data-category="barba">
+                        <img src="img.png/aceite de barba.webp" class="product-img" alt="Aceite para Barba">
+                        <div class="card-body">
+                            <span class="badge bg-primary mb-2">Nuevo</span>
+                            <h5 class="product-title">Aceite para Barba Premium</h5>
+                            <p class="text-muted">Nutre y suaviza tu barba</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$19.990</span>
+                                <button class="btn add-to-cart-btn">
+                                    <i class="fas fa-shopping-cart me-2"></i>Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 2 -->
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card" data-product-id="2" data-category="cabello">
+                        <img src="img.png/nish man.png" class="product-img" alt="Pomada para Cabello">
+                        <div class="card-body">
+                            <h5 class="product-title">Cera Nish Man M5</h5>
+                            <p class="text-muted">Fijación fuerte y natural</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$15.990</span>
+                                <button class="btn add-to-cart-btn">
+                                    <i class="fas fa-shopping-cart me-2"></i>Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 3 -->
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="product-card" data-product-id="3" data-category="afeitado">
+                        <img src="img.png/kitafeitado.jpg" class="product-img" alt="Kit de Afeitado">
+                        <div class="card-body">
+                            <span class="badge bg-danger mb-2">Oferta</span>
+                            <h5 class="product-title">Kit de Afeitado Clásico</h5>
+                            <p class="text-muted">Todo lo necesario para un afeitado perfecto</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$29.990</span>
+                                <button class="btn add-to-cart-btn">
+                                    <i class="fas fa-shopping-cart me-2"></i>Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 4 -->
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="product-card" data-product-id="4" data-category="accesorios">
+                        <img src="img.png/cepillobarba.webp" class="product-img" alt="Cepillo para Barba">
+                        <div class="card-body">
+                            <h5 class="product-title">Cepillo para Barba Premium</h5>
+                            <p class="text-muted">Cerdas naturales de jabalí</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">$12.990</span>
+                                <button class="btn add-to-cart-btn">
+                                    <i class="fas fa-shopping-cart me-2"></i>Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="productos.html" class="btn btn-lg btn-primary">Ver Todos los Productos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h3 class="mb-4">Suscríbete</h3>
+                    <p class="mb-4">Recibe las últimas novedades, ofertas exclusivas y consejos de cuidado personal.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control newsletter-input" placeholder="Tu correo electrónico">
+                            <button class="btn btn-primary" type="submit">Suscribirse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Características -->
+    <section class="features py-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-item">
+                        <i class="fas fa-truck fa-3x mb-3 text-primary"></i>
+                        <h4>Envío Gratis</h4>
+                        <p>En compras sobre $30.000</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-item">
+                        <i class="fas fa-lock fa-3x mb-3 text-primary"></i>
+                        <h4>Pago Seguro</h4>
+                        <p>Transacciones 100% seguras</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-item">
+                        <i class="fas fa-sync fa-3x mb-3 text-primary"></i>
+                        <h4>Devolución Gratis</h4>
+                        <p>30 días de garantía</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-item">
+                        <i class="fas fa-headset fa-3x mb-3 text-primary"></i>
+                        <h4>Soporte 24/7</h4>
+                        <p>Atención personalizada</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Sobre Nosotros</h5>
+                    <p class="small">Somos tu tienda especializada en productos de barbería profesional. Ofrecemos las mejores marcas y calidad garantizada.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="ofertas.html">Ofertas</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Ayuda</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Envíos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-home me-2"></i> Santiago, Chile
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-envelope me-2"></i>BarberLegazy@gmail.com
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone me-2"></i> +56 962875480
+                        </li>
+                        <li>
+                            <i class="fas fa-clock me-2"></i> Lun-Vie: 9AM a 6PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-start mb-3 mb-lg-0">
+                        <p class="small mb-0">© 2025 Barber Shop. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-end">
+                        <img src="img/payment-methods.png" alt="Métodos de pago" height="30">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+    <script src="js/main.js"></script>
+    <!-- Script del botón de administrador -->
+    <script src="js/admin-button.js"></script>
+
+    <!-- Botón de Administrador -->
+    <a href="admin/index.html" class="admin-button" style="opacity: 0; transform: translateY(20px);">
+        <i class="fas fa-user-shield"></i>
+        <span class="admin-tooltip">Panel de Administración</span>
+    </a>
+
+    <!-- Notificaciones -->
+    <div class="notification-container"></div>
+</body>
+</html>

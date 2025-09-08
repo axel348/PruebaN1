@@ -1,0 +1,92 @@
+.preview-cart-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.preview-cart-item:last-child {
+    border-bottom: none;
+}
+
+.preview-item-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.preview-item-details {
+    flex: 1;
+}
+
+.preview-quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.preview-quantity-controls .btn {
+    padding: 2px 8px;
+    font-size: 12px;
+}
+
+#cartPreviewModal .modal-content {
+    border-radius: 10px;
+    position: relative;
+    z-index: 1051;
+}
+
+#cartPreviewModal .modal-header {
+    background-color: var(--primary-color);
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+}
+
+#cartPreviewModal .btn-close {
+    filter: brightness(0) invert(1);
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 1052;
+    opacity: 1;
+}
+
+#cartPreviewModal .btn-close:hover {
+    opacity: 0.75;
+}
+
+.modal-backdrop {
+    z-index: 1050;
+}
+
+/* Asegurar que el modal sea clickeable */
+.modal {
+    z-index: 1051;
+}
+
+/* Hacer el botón de cerrar más visible */
+.btn-close {
+    box-shadow: none !important;
+    padding: 0.5rem !important;
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat !important;
+}
+
+.cart-preview-summary {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.cart-preview-items {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#cartAlert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+    min-width: 300px;
+}

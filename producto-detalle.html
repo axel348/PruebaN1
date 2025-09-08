@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLIPPER JRL ONIX - barberlegacy</title>
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/producto-detalle.css">
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar bg-dark text-light py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <i class="fas fa-phone-alt me-2"></i> +56 9 62875480
+                    <i class="fas fa-envelope ms-3 me-2"></i> BarberLegacy@barbershop.cl
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img.png/ChatGPT Image 4 sept 2025, 19_46_22.png" alt="Logo" height="50">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="carrito.html" class="cart-btn position-relative">
+                        <i class="fas fa-shopping-cart fs-5"></i>
+                        <span class="cart-badge badge rounded-pill">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido del producto -->
+    <div class="product-detail-container">
+        <div class="container">
+            <div class="product-detail">
+                <div class="row">
+                    <!-- Galería de imágenes -->
+                    <div class="col-md-6">
+                        <div class="product-gallery">
+                            <img src="img.png/CLIPPER-JRL-ONYX-e1724100771770.png" alt="CLIPPER VGR V-001" class="product-main-image">
+                            <div class="product-thumbnails">
+                                <img src="img.png/CLIPPER-JRL-ONYX-e1724100771770.png" alt="Vista 1" class="product-thumbnail active">
+                                <img src="img.png/MAGIC-CORDLESS.png" alt="Vista 2" class="product-thumbnail">
+                                <img src="img.png/CLIPPER-JRL-ONYX-e1724100771770.png" alt="Vista 3" class="product-thumbnail">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información del producto -->
+                    <div class="col-md-6">
+                        <div class="product-info">
+                            <h1>CLIPPER VGR V-001 BLUE EDITION</h1>
+                            <div class="product-price">
+                                <span class="product-old-price">$89.990</span>
+                                $69.990
+                                <span class="discount-badge">-22%</span>
+                            </div>
+
+                            <div class="stock-indicator in-stock">
+                                <i class="fas fa-check-circle"></i>
+                                En stock (10 unidades)
+                            </div>
+
+                            <div class="product-description">
+                                <p>La VGR V-001 BLUE EDITION es una máquina de corte profesional diseñada para barberos exigentes. Con su motor potente y cuchillas de precisión, ofrece un corte limpio y preciso en todo momento.</p>
+                            </div>
+
+                            <div class="product-features">
+                                <h4>Características principales:</h4>
+                                <div class="feature-item">
+                                    <span class="feature-icon"><i class="fas fa-battery-full"></i></span>
+                                    <span>3 horas de autonomía</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon"><i class="fas fa-bolt"></i></span>
+                                    <span>Motor profesional de 7000 rpm</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon"><i class="fas fa-clock"></i></span>
+                                    <span>Carga rápida en 2 horas</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon"><i class="fas fa-ruler"></i></span>
+                                    <span>5 niveles de altura de corte</span>
+                                </div>
+                            </div>
+
+                            <div class="quantity-selector">
+                                <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                                <input type="number" class="quantity-input" value="1" min="1">
+                                <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                            </div>
+
+                            <button class="add-to-cart-btn" data-product-id="vgr-v001">
+                                <i class="fas fa-shopping-cart"></i>
+                                Agregar al carrito
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs de información adicional -->
+                <div class="product-tabs mt-5">
+                    <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="description-tab" data-bs-toggle="tab" href="#description">
+                                Descripción
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="specs-tab" data-bs-toggle="tab" href="#specs">
+                                Especificaciones
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews">
+                                Reseñas
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="productTabsContent">
+                        <div class="tab-pane fade show active" id="description">
+                            <h4>Descripción detallada</h4>
+                            <p>La CLIPPER VGR V-001 BLUE EDITION es una máquina de corte profesional que combina potencia, precisión y diseño. Sus características destacadas incluyen:</p>
+                            <ul>
+                                <li>Motor profesional de alta velocidad</li>
+                                <li>Batería de larga duración con indicador LED</li>
+                                <li>Cuchillas de acero inoxidable ajustables</li>
+                                <li>Diseño ergonómico para mayor comodidad</li>
+                                <li>Kit completo de accesorios incluido</li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="specs">
+                            <h4>Especificaciones técnicas</h4>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>Modelo</th>
+                                        <td>VGR V-001 BLUE EDITION</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Motor</th>
+                                        <td>7000 rpm profesional</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Batería</th>
+                                        <td>Litio 2000mAh</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tiempo de carga</th>
+                                        <td>2 horas</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Autonomía</th>
+                                        <td>3 horas</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Peso</th>
+                                        <td>280g</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane fade" id="reviews">
+                            <h4>Reseñas de clientes</h4>
+                            <!-- Sistema de reseñas aquí -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productos relacionados -->
+            <div class="related-products">
+                <h3>Productos relacionados</h3>
+                <div class="row">
+                    <!-- Productos relacionados aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <p>
+                        <i class="fas fa-phone-alt me-2"></i> +56 9 62875480<br>
+                        <i class="fas fa-envelope me-2"></i> BarberLegacy@barbershop.cl
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Enlaces rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="productos.html" class="text-white">Productos</a></li>
+                        <li><a href="nosotros.html" class="text-white">Sobre nosotros</a></li>
+                        <li><a href="contacto.html" class="text-white">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Síguenos</h5>
+                    <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/productos.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+</html>

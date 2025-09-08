@@ -1,0 +1,129 @@
+/* Estilos para la página Nosotros */
+
+/* Variables globales */
+:root {
+    --card-gradient-1: linear-gradient(45deg, #2c3e50, #3498db);
+    --card-gradient-2: linear-gradient(45deg, #c0392b, #e74c3c);
+    --card-gradient-3: linear-gradient(45deg, #27ae60, #2ecc71);
+    --card-gradient-4: linear-gradient(45deg, #8e44ad, #9b59b6);
+}
+
+/* Header con imagen de fondo */
+.about-header {
+    background: url('../img/slide-2-1-800x384.jpg') no-repeat center;
+    background-size: cover;
+    min-height: 300px;
+    position: relative;
+}
+
+.about-header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.min-vh-50 {
+    min-height: 50vh;
+}
+
+/* Historia */
+.history-image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-text {
+    color: #999;
+}
+
+/* Team Cards */
+.team-card {
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Estilos para las tarjetas de equipo */
+.square-image {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:nth-child(1) .square-image {
+    background: var(--card-gradient-1);
+}
+
+.team-member:nth-child(2) .square-image {
+    background: var(--card-gradient-2);
+}
+
+.team-member:nth-child(3) .square-image {
+    background: var(--card-gradient-3);
+}
+
+.team-member:nth-child(4) .square-image {
+    background: var(--card-gradient-4);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: center/cover;
+    opacity: 0.8;
+}
+
+.member-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    transition: opacity 0.3s ease;
+}
+
+.member-details {
+    transition: transform 0.3s ease;
+}
+
+.member-details h4 {
+    margin-bottom: 0.25rem;
+}
+
+.member-details .text-primary {
+    margin-bottom: 0.5rem;
+}
+
+.member-details .small {
+    color: #6c757d;
+}
+
+/* Achievements */
+.achievement {
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.achievement:hover {
+    transform: translateY(-5px);
+}
+
+.counter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--bs-primary);
+}

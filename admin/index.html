@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrativo - Barber Legacy</title>
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <link href="https://cdn.jsdelivr.net/npm/chart.js" rel="stylesheet">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../img.png/ChatGPT Image 4 sept 2025, 19_46_22.png" alt="Barber Legacy Logo" class="sidebar-logo">
+                <h3 class="admin-name">Barber Legacy</h3>
+                <p class="admin-role">Panel de Control</p>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item active">
+                    <i class="fas fa-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="ventas.html" class="menu-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Ventas</span>
+                </a>
+                <a href="productos.html" class="menu-item">
+                    <i class="fas fa-box"></i>
+                    <span>Productos</span>
+                </a>
+                <a href="clientes.html" class="menu-item">
+                    <i class="fas fa-users"></i>
+                    <span>Clientes</span>
+                </a>
+                <a href="configuracion.html" class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Configuración</span>
+                </a>
+                <a href="javascript:void(0)" class="menu-item" onclick="logoutAdmin()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-content">
+                <button class="menu-toggle d-lg-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar...">
+                </div>
+
+                <div class="header-right">
+                    <div class="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                        
+                        <!-- Dropdown de notificaciones -->
+                        <div class="notifications-dropdown">
+                            <!-- Las notificaciones se cargarán dinámicamente -->
+                        </div>
+                    </div>
+
+                    <div class="admin-profile">
+                        <img src="../img.png/admin-profile.jpg" alt="Admin" class="profile-img">
+                        <span class="profile-name">Juan Pérez</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="admin-main">
+            <h1 class="section-title">Panel de Control</h1>
+
+            <!-- Estadísticas Generales -->
+            <div class="dashboard-cards">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="card-title">Ingresos Totales</h3>
+                    <p class="card-value">$25,890.00</p>
+                    <span class="card-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> +18% este mes
+                    </span>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3 class="card-title">Total Pedidos</h3>
+                    <p class="card-value">348</p>
+                    <span class="card-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> +12% este mes
+                    </span>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="card-title">Clientes Totales</h3>
+                    <p class="card-value">256</p>
+                    <span class="card-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> +15% este mes
+                    </span>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3 class="card-title">Productos</h3>
+                    <p class="card-value">85</p>
+                    <span class="card-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> +5 nuevos
+                    </span>
+                </div>
+            </div>
+
+            <!-- Tabla de Últimas Ventas -->
+            <div class="admin-table">
+                <div class="table-header">
+                    <h2 class="table-title">Últimas Ventas</h2>
+                    <a href="ventas.html" class="btn btn-primary-admin">
+                        <i class="fas fa-eye"></i> Ver Todas
+                    </a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID Pedido</th>
+                                <th>Cliente</th>
+                                <th>Productos</th>
+                                <th>Total</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD001</td>
+                                <td>Juan Pérez</td>
+                                <td>Kit de Afeitado, Aceite para Barba</td>
+                                <td>$125.00</td>
+                                <td><span class="badge bg-success">Completado</span></td>
+                            </tr>
+                            <tr>
+                                <td>#ORD002</td>
+                                <td>María González</td>
+                                <td>Magic Clip, Set de Peines</td>
+                                <td>$289.99</td>
+                                <td><span class="badge bg-warning">Pendiente</span></td>
+                            </tr>
+                            <tr>
+                                <td>#ORD003</td>
+                                <td>Carlos Rodríguez</td>
+                                <td>Cera Nishman, Navaja Profesional</td>
+                                <td>$75.50</td>
+                                <td><span class="badge bg-success">Completado</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Productos Más Vendidos -->
+            <div class="admin-table mt-4">
+                <div class="table-header">
+                    <h2 class="table-title">Productos Más Vendidos</h2>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Ventas</th>
+                                <th>Stock</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Magic Clip Cordless</td>
+                                <td>45</td>
+                                <td>8</td>
+                                <td>$159.99</td>
+                                <td><span class="badge bg-warning">Stock Bajo</span></td>
+                            </tr>
+                            <tr>
+                                <td>Kit de Afeitado Premium</td>
+                                <td>38</td>
+                                <td>15</td>
+                                <td>$89.99</td>
+                                <td><span class="badge bg-success">En Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>Cera Nishman</td>
+                                <td>32</td>
+                                <td>25</td>
+                                <td>$24.99</td>
+                                <td><span class="badge bg-success">En Stock</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="stat-card-content">
+                                <h3>Total Ventas</h3>
+                                <p id="total-ventas">0</p>
+                            </div>
+                            <div class="stat-card-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="stat-card-content">
+                                <h3>Ventas Hoy</h3>
+                                <p id="ventas-hoy">0</p>
+                            </div>
+                            <div class="stat-card-icon">
+                                <i class="fas fa-calendar-day"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="stat-card-content">
+                                <h3>Ingreso Total</h3>
+                                <p id="ingreso-total">$0</p>
+                            </div>
+                            <div class="stat-card-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card">
+                            <div class="stat-card-content">
+                                <h3>Productos Vendidos</h3>
+                                <p id="productos-vendidos">0</p>
+                            </div>
+                            <div class="stat-card-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficos -->
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="chart-card">
+                            <h3>Ventas por Producto</h3>
+                            <canvas id="productosChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="chart-card">
+                            <h3>Ventas Últimos 7 Días</h3>
+                            <canvas id="ventasChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ventas -->
+            <section id="sales" class="content-section" style="display: none;">
+                <h2 class="section-title">Registro de Ventas</h2>
+                <div class="table-responsive">
+                    <table class="table custom-table" id="tablaVentas">
+                        <thead>
+                            <tr>
+                                <th>ID Pedido</th>
+                                <th>Fecha</th>
+                                <th>Cliente</th>
+                                <th>Dirección</th>
+                                <th>Productos</th>
+                                <th>Total</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#1001</td>
+                                <td>06/09/2025</td>
+                                <td>Carlos Martínez</td>
+                                <td>Av. Providencia 1234, Santiago</td>
+                                <td>2 productos</td>
+                                <td>$169.980</td>
+                                <td><span class="badge bg-success">Completado</span></td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" onclick="verDetalle(1001)">Ver</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1002</td>
+                                <td>06/09/2025</td>
+                                <td>Ana Silva</td>
+                                <td>Las Condes 5678, Santiago</td>
+                                <td>1 producto</td>
+                                <td>$89.990</td>
+                                <td><span class="badge bg-warning">Pendiente</span></td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" onclick="verDetalle(1002)">Ver</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#1003</td>
+                                <td>05/09/2025</td>
+                                <td>Jorge Pérez</td>
+                                <td>Vitacura 910, Santiago</td>
+                                <td>3 productos</td>
+                                <td>$125.970</td>
+                                <td><span class="badge bg-success">Completado</span></td>
+                                <td>
+                                    <button class="btn btn-info btn-sm" onclick="verDetalle(1003)">Ver</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Inventario -->
+            <section id="inventory" class="content-section" style="display: none;">
+                <h2 class="section-title">Inventario de Productos</h2>
+                <div class="table-responsive">
+                    <table class="table custom-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Stock</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#P001</td>
+                                <td>Clipper Wahl Magic Clip</td>
+                                <td>Máquinas</td>
+                                <td>10</td>
+                                <td>$89.990</td>
+                                <td><span class="badge bg-success">En Stock</span></td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Editar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#P002</td>
+                                <td>Clipper JRL ONYX</td>
+                                <td>Máquinas</td>
+                                <td>10</td>
+                                <td>$79.990</td>
+                                <td><span class="badge bg-success">En Stock</span></td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Editar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#P003</td>
+                                <td>Kit de Afeitado Profesional</td>
+                                <td>Accesorios</td>
+                                <td>10</td>
+                                <td>$34.990</td>
+                                <td><span class="badge bg-success">En Stock</span></td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Editar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#P004</td>
+                                <td>Navaja de Afeitar Profesional</td>
+                                <td>Accesorios</td>
+                                <td>10</td>
+                                <td>$45.990</td>
+                                <td><span class="badge bg-success">En Stock</span></td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Editar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#P005</td>
+                                <td>Aceite para Barba Premium</td>
+                                <td>Cuidado Personal</td>
+                                <td>10</td>
+                                <td>$15.990</td>
+                                <td><span class="badge bg-success">En Stock</span></td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Editar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#P006</td>
+                                <td>Cepillo para Barba Premium</td>
+                                <td>Accesorios</td>
+                                <td>10</td>
+                                <td>$12.990</td>
+                                <td><span class="badge bg-success">En Stock</span></td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Editar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#P007</td>
+                                <td>Set de Peines Profesionales</td>
+                                <td>Accesorios</td>
+                                <td>10</td>
+                                <td>$19.990</td>
+                                <td><span class="badge bg-success">En Stock</span></td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm">Editar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Clientes -->
+            <section id="customers" class="content-section" style="display: none;">
+                <h2 class="section-title">Registro de Clientes</h2>
+                <div class="table-responsive">
+                    <table class="table custom-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Dirección</th>
+                                <th>Compras</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#C001</td>
+                                <td>Carlos Martínez</td>
+                                <td>carlos.martinez@email.com</td>
+                                <td>+56 9 8765 4321</td>
+                                <td>Av. Providencia 1234, Santiago</td>
+                                <td>3</td>
+                                <td>
+                                    <button class="btn btn-info btn-sm">Ver historial</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#C002</td>
+                                <td>Ana Silva</td>
+                                <td>ana.silva@email.com</td>
+                                <td>+56 9 7654 3210</td>
+                                <td>Las Condes 5678, Santiago</td>
+                                <td>1</td>
+                                <td>
+                                    <button class="btn btn-info btn-sm">Ver historial</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#C003</td>
+                                <td>Jorge Pérez</td>
+                                <td>jorge.perez@email.com</td>
+                                <td>+56 9 6543 2109</td>
+                                <td>Vitacura 910, Santiago</td>
+                                <td>2</td>
+                                <td>
+                                    <button class="btn btn-info btn-sm">Ver historial</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Configuración -->
+            <section id="settings" class="content-section" style="display: none;">
+                <h2 class="section-title">Configuración del Sistema</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Información de la Tienda</h5>
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label">Nombre de la Tienda</label>
+                                        <input type="text" class="form-control" value="Barber Legacy">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Dirección</label>
+                                        <input type="text" class="form-control" value="Santiago, Chile">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Teléfono</label>
+                                        <input type="tel" class="form-control" value="+56 9 62875480">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" value="BarberLegacy@gmail.com">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Configuración de Notificaciones</h5>
+                                <form>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="emailNotif" checked>
+                                        <label class="form-check-label" for="emailNotif">Notificaciones por email</label>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="stockAlert" checked>
+                                        <label class="form-check-label" for="stockAlert">Alertas de stock bajo</label>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="orderNotif" checked>
+                                        <label class="form-check-label" for="orderNotif">Notificaciones de nuevos pedidos</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Guardar Preferencias</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <main class="admin-main">
+            <!-- Sección Dashboard -->
+            <section id="dashboardSection" class="admin-section">
+                <h1 class="mb-4">Dashboard</h1>
+
+                <div class="dashboard-cards">
+                    <!-- Card de Ventas -->
+                    <div class="dashboard-card" id="salesCard">
+                        <div class="card-icon" style="background: rgba(44, 62, 80, 0.1);">
+                            <i class="fas fa-shopping-cart" style="color: var(--secondary-color);"></i>
+                        </div>
+                        <div class="card-title">Ventas Totales</div>
+                        <div class="card-value">$15,750</div>
+                        <div class="card-trend trend-up">
+                            <i class="fas fa-arrow-up"></i> +12.5% vs mes anterior
+                        </div>
+                    </div>
+
+                    <!-- Card de Órdenes -->
+                    <div class="dashboard-card" id="ordersCard">
+                        <div class="card-icon" style="background: rgba(255, 77, 77, 0.1);">
+                            <i class="fas fa-box" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div class="card-title">Órdenes</div>
+                        <div class="card-value">356</div>
+                        <div class="card-trend trend-up">
+                            <i class="fas fa-arrow-up"></i> +5.2% vs mes anterior
+                        </div>
+                    </div>
+
+                    <!-- Card de Clientes -->
+                    <div class="dashboard-card" id="customersCard">
+                        <div class="card-icon" style="background: rgba(241, 196, 15, 0.1);">
+                            <i class="fas fa-users" style="color: var(--accent-color);"></i>
+                        </div>
+                        <div class="card-title">Clientes</div>
+                        <div class="card-value">892</div>
+                        <div class="card-trend trend-up">
+                            <i class="fas fa-arrow-up"></i> +15.7% vs mes anterior
+                        </div>
+                    </div>
+
+                    <!-- Card de Ingresos -->
+                    <div class="dashboard-card" id="revenueCard">
+                        <div class="card-icon" style="background: rgba(46, 204, 113, 0.1);">
+                            <i class="fas fa-dollar-sign" style="color: #2ecc71;"></i>
+                        </div>
+                        <div class="card-title">Ingresos</div>
+                        <div class="card-value">$45,678</div>
+                        <div class="card-trend trend-up">
+                            <i class="fas fa-arrow-up"></i> +8.3% vs mes anterior
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficos -->
+                <div class="row">
+                    <div class="col-lg-8 mb-4">
+                        <div class="chart-container">
+                            <h5>Ventas Mensuales</h5>
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <div class="chart-container">
+                            <h5>Productos más Vendidos</h5>
+                            <canvas id="productsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla de Últimas Ventas -->
+                <div class="admin-table">
+                    <div class="table-header">
+                        <h5 class="table-title">Últimas Ventas</h5>
+                        <button class="btn btn-admin btn-primary-admin">
+                            Ver todas
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Producto</th>
+                                    <th>Fecha</th>
+                                    <th>Monto</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#1234</td>
+                                    <td>Carlos Martínez</td>
+                                    <td>Kit de Afeitado Premium</td>
+                                    <td>2025-09-06</td>
+                                    <td>$89.99</td>
+                                    <td><span class="badge bg-success">Completado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#1233</td>
+                                    <td>Ana López</td>
+                                    <td>Aceite para Barba</td>
+                                    <td>2025-09-06</td>
+                                    <td>$29.99</td>
+                                    <td><span class="badge bg-warning">Pendiente</span></td>
+                                </tr>
+                                <tr>
+                                    <td>#1232</td>
+                                    <td>Miguel Ángel</td>
+                                    <td>Tijeras Profesionales</td>
+                                    <td>2025-09-05</td>
+                                    <td>$159.99</td>
+                                    <td><span class="badge bg-success">Completado</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Otras secciones (inicialmente ocultas) -->
+            <section id="salesSection" class="admin-section" style="display: none;">
+                <h1>Ventas</h1>
+                <!-- Contenido de la sección de ventas -->
+            </section>
+
+            <section id="inventorySection" class="admin-section" style="display: none;">
+                <h1>Inventario</h1>
+                <!-- Contenido de la sección de inventario -->
+            </section>
+
+            <section id="reportsSection" class="admin-section" style="display: none;">
+                <h1>Reportes</h1>
+                <!-- Contenido de la sección de reportes -->
+            </section>
+
+            <section id="employeesSection" class="admin-section" style="display: none;">
+                <h1>Empleados</h1>
+                <!-- Contenido de la sección de empleados -->
+            </section>
+
+            <section id="customersSection" class="admin-section" style="display: none;">
+                <h1>Clientes</h1>
+                <!-- Contenido de la sección de clientes -->
+            </section>
+
+            <section id="settingsSection" class="admin-section" style="display: none;">
+                <h1>Configuración</h1>
+                <!-- Contenido de la sección de configuración -->
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

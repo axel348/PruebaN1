@@ -1,0 +1,120 @@
+/* Estilos para la página del Blog */
+
+/* Header del blog */
+.blog-header {
+    background: url('img.png/bepro.webp') no-repeat center;
+    background-size: cover;
+    min-height: 400px;
+    position: relative;
+}
+
+.blog-header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Estilos para las tarjetas del blog */
+.blog-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.blog-image {
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-category {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--bs-primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.blog-meta {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.blog-excerpt {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Paginación */
+.pagination .page-link {
+    color: var(--bs-primary);
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+/* Barra lateral */
+.sidebar-section {
+    margin-bottom: 2rem;
+}
+
+.sidebar-section h4 {
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.sidebar-section h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--bs-primary);
+}
+
+.popular-posts .post-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.popular-posts .post-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.tag-cloud .btn {
+    margin: 5px;
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    background-color: #f8f9fa;
+    color: #6c757d;
+    transition: all 0.3s ease;
+}
+
+.tag-cloud .btn:hover {
+    background-color: var(--bs-primary);
+    color: white;
+}

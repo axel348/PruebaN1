@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - Barber Legacy</title>
+    
+    <!-- Etiquetas SEO -->
+    <meta name="description" content="Carrito de compras de Barber Legacy. Revisa tus productos y finaliza tu compra.">
+    <meta name="keywords" content="carrito compras, productos barbería, checkout">
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/carrito.css">
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar bg-dark text-light py-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <i class="fas fa-phone-alt me-2"></i> +56 9 1234 5678
+                    <i class="fas fa-envelope ms-3 me-2"></i> info@barberlegacy.cl
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.png" alt="Barber Legacy Logo" height="50">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="productos.html">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <a href="carrito.html" class="cart-btn position-relative">
+                        <i class="fas fa-shopping-cart fs-5"></i>
+                        <span class="cart-badge badge rounded-pill">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header del Carrito -->
+    <header class="cart-header py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 text-center">
+                    <h1 class="display-4 text-white fw-bold mb-3" data-aos="fade-up">Tu Carrito</h1>
+                    <nav aria-label="breadcrumb" data-aos="fade-up" data-aos-delay="100">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white">Inicio</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Carrito</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido del Carrito -->
+    <section class="cart-content py-5">
+        <div class="container">
+            <!-- Alerta de carrito actualizado -->
+            <div class="alert alert-success alert-dismissible fade" role="alert" id="cartAlert">
+                <span id="alertMessage"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div class="row">
+                <!-- Lista de productos en el carrito -->
+                <div class="col-lg-8">
+                    <div class="cart-items" id="cartItems">
+                        <!-- Los items del carrito se cargarán dinámicamente aquí -->
+                    </div>
+                </div>
+
+                <!-- Resumen del carrito -->
+                <div class="col-lg-4">
+                    <div class="cart-summary bg-white p-4 rounded shadow">
+                        <h3 class="mb-4">Resumen de Compra</h3>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Envío</span>
+                            <span id="shipping">$0.00</span>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between mb-4">
+                            <strong>Total</strong>
+                            <strong id="total">$0.00</strong>
+                        </div>
+                        <button class="btn btn-primary w-100 mb-3" id="checkoutBtn">
+                            Proceder al Pago
+                        </button>
+                        <a href="productos.html" class="btn btn-outline-secondary w-100">
+                            Seguir Comprando
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Confirmación de Compra -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirmar Compra</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="checkoutForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Dirección de Envío</label>
+                            <input type="text" class="form-control" id="address" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+                            <input type="text" class="form-control" id="cardNumber" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="confirmPurchaseBtn">Confirmar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <!-- Contenido del Carrito -->
+    <section class="cart-content py-5">
+        <div class="container">
+            <!-- Mensaje de carrito vacío -->
+            <div id="emptyCartMessage" class="empty-cart" style="display: none;" data-aos="fade-up">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Tu carrito está vacío</h3>
+                <p>¿No sabes qué comprar? ¡Miles de productos te esperan!</p>
+                <a href="productos.html" class="btn btn-primary">Ver Productos</a>
+            </div>
+
+            <!-- Tabla del carrito -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="cart-table table-responsive mb-4" data-aos="fade-up">
+                        <table class="table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartItems">
+                                <!-- Los items del carrito se insertarán aquí dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Resumen del carrito -->
+                <div class="col-lg-4">
+                    <div id="cartSummary" class="cart-summary" data-aos="fade-left">
+                        <h3 class="mb-4">Resumen de Compra</h3>
+                        <div class="summary-item">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$0</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Envío</span>
+                            <span id="shipping">$2.500</span>
+                        </div>
+                        <div class="summary-item summary-total">
+                            <span>Total</span>
+                            <span id="total">$0</span>
+                        </div>
+                        <button id="checkoutBtn" class="btn btn-primary checkout-btn">
+                            Finalizar Compra
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Compra Exitosa -->
+    <div class="modal fade success-modal" id="successModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <i class="fas fa-check-circle success-check"></i>
+                    <h3>¡Compra Exitosa!</h3>
+                    <p>Gracias por tu compra. Recibirás un correo con los detalles de tu pedido.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast para productos agregados -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="addToCartToast" class="toast" role="alert">
+            <div class="toast-header">
+                <i class="fas fa-check-circle text-success me-2"></i>
+                <strong class="me-auto">Producto Agregado</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                El producto se ha agregado a tu carrito exitosamente.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Sobre Nosotros</h5>
+                    <p class="small">Somos tu tienda especializada en productos de barbería profesional. Ofrecemos las mejores marcas y calidad garantizada.</p>
+                    <div class="social-links mt-4">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="ofertas.html">Ofertas</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Ayuda</h5>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Envíos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="text-uppercase mb-4">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3">
+                            <i class="fas fa-home me-2"></i> Santiago, Chile
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-envelope me-2"></i> info@barberlegacy.cl
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone me-2"></i> +56 9 1234 5678
+                        </li>
+                        <li>
+                            <i class="fas fa-clock me-2"></i> Lun-Vie: 9AM a 6PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-4">
+                <div class="row">
+                    <div class="col-lg-6 text-center text-lg-start mb-3 mb-lg-0">
+                        <p class="small mb-0">© 2025 Barber Legacy. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-end">
+                        <img src="img/payment-methods.png" alt="Métodos de pago" height="30">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+</html>

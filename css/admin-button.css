@@ -1,0 +1,54 @@
+/* 
+===========================================
+ESTILOS DEL BOTÓN DE ADMINISTRADOR
+Este archivo contiene los estilos específicos para
+el botón de acceso al panel de administración.
+===========================================
+*/
+
+.admin-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #343a40;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.admin-button:hover {
+    background-color: #1a1e21;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    color: white;
+}
+
+.admin-button i {
+    font-size: 24px;
+}
+
+/* Tooltip personalizado */
+.admin-tooltip {
+    position: absolute;
+    background-color: #343a40;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    right: 70px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.admin-button:hover .admin-tooltip {
+    opacity: 1;
+}

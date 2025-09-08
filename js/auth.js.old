@@ -1,0 +1,243 @@
+/*
+===========================================
+AUTENTICACIÓN DEL PANEL DE ADMINISTRACIÓN
+Este archivo maneja la lógica de autenticación
+para el acceso al panel de administrador.
+===========================================
+*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Credenciales del administrador
+    const ADMIN_CREDENTIALS = {
+        email: 'axelduran342@gmail.com',
+        password: 'axelduran8'
+    };
+
+    // Elementos del DOM
+    const adminLoginForm = document.getElementById('adminLoginForm');
+    const alertContainer = document.getElementById('alertContainer');
+
+    // Función para mostrar alertas
+    function showAlert(message, type = 'danger') {
+        alertContainer.innerHTML = `
+            <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        `;
+    }
+
+    // Función para validar las credenciales
+    function validateCredentials(email, password) {
+        return email === ADMIN_CREDENTIALS.email && password === ADMIN_CREDENTIALS.password;
+    }
+
+    // Manejo del formulario de login
+    if (adminLoginForm) {
+        adminLoginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('adminEmail').value;
+            const password = document.getElementById('adminPassword').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+    }
+
+    /**
+     * Maneja el registro de usuarios
+     * @param {Event} e - Evento del formulario
+     */
+    handleRegister(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('registerName').value;
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+
+        // Validaciones
+        if (!this.validateName(name)) {
+            this.showAlert('El nombre debe tener al menos 3 caracteres', 'error');
+            return;
+        }
+
+        if (!this.validateEmail(email)) {
+            this.showAlert('Por favor, ingresa un email válido', 'error');
+            return;
+        }
+
+        if (!this.validatePassword(password)) {
+            this.showAlert('La contraseña debe tener al menos 8 caracteres, incluir mayúsculas, minúsculas y números', 'error');
+            return;
+        }
+
+        // Verificar si el email ya está registrado
+        if (this.users.some(user => user.email === email)) {
+            this.showAlert('Este email ya está registrado', 'error');
+            return;
+        }
+
+        // Agregar nuevo usuario
+        this.users.push({
+            name,
+            email,
+            password: this.hashPassword(password), // En una aplicación real, usar bcrypt o similar
+            createdAt: new Date()
+        });
+
+        this.saveUsers();
+        this.showAlert('¡Registro exitoso! Redirigiendo al login...', 'success');
+        
+        // Redireccionar al login después de 2 segundos
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 2000);
+    }
+
+    /**
+     * Maneja el inicio de sesión
+     * @param {Event} e - Evento del formulario
+     */
+    handleLogin(e) {
+        e.preventDefault();
+
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+
+        // Buscar usuario
+        const user = this.users.find(user => user.email === email);
+
+        if (!user || user.password !== this.hashPassword(password)) {
+            this.showAlert('Email o contraseña incorrectos', 'error');
+            return;
+        }
+
+        // Guardar sesión
+        this.setSession(user);
+        this.showAlert('¡Bienvenido! Redirigiendo...', 'success');
+
+        // Redireccionar al inicio después de 2 segundos
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 2000);
+    }
+
+    /**
+     * Verifica la fortaleza de la contraseña
+     * @param {string} password - Contraseña a verificar
+     */
+    checkPasswordStrength(password) {
+        const strengthBar = document.getElementById('passwordStrength');
+        if (!strengthBar) return;
+
+        if (password.length === 0) {
+            strengthBar.className = 'password-strength';
+            return;
+        }
+
+        // Criterios de fortaleza
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasNumber = /\d/.test(password);
+        const isLongEnough = password.length >= 8;
+
+        let strength = 0;
+        if (hasLowerCase) strength++;
+        if (hasUpperCase) strength++;
+        if (hasNumber) strength++;
+        if (isLongEnough) strength++;
+
+        // Actualizar barra de fortaleza
+        switch(strength) {
+            case 0:
+            case 1:
+                strengthBar.className = 'password-strength strength-weak';
+                break;
+            case 2:
+            case 3:
+                strengthBar.className = 'password-strength strength-medium';
+                break;
+            case 4:
+                strengthBar.className = 'password-strength strength-strong';
+                break;
+        }
+    }
+
+    /**
+     * Valida el nombre de usuario
+     * @param {string} name - Nombre a validar
+     */
+    validateName(name) {
+        return name.length >= 3;
+    }
+
+    /**
+     * Valida el email
+     * @param {string} email - Email a validar
+     */
+    validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    /**
+     * Valida la contraseña
+     * @param {string} password - Contraseña a validar
+     */
+    validatePassword(password) {
+        return password.length >= 8 && 
+               /[a-z]/.test(password) && 
+               /[A-Z]/.test(password) && 
+               /\d/.test(password);
+    }
+
+    /**
+     * Simula un hash de contraseña (en producción usar bcrypt o similar)
+     * @param {string} password - Contraseña a hashear
+     */
+    hashPassword(password) {
+        return btoa(password); // NOTA: Esto es solo para demo, no usar en producción
+    }
+
+    /**
+     * Guarda la sesión del usuario
+     * @param {Object} user - Datos del usuario
+     */
+    setSession(user) {
+        const session = {
+            name: user.name,
+            email: user.email,
+            loggedIn: true,
+            timestamp: new Date()
+        };
+        localStorage.setItem('session', JSON.stringify(session));
+    }
+
+    /**
+     * Muestra alertas al usuario
+     * @param {string} message - Mensaje a mostrar
+     * @param {string} type - Tipo de alerta (success/error)
+     */
+    showAlert(message, type) {
+        const alertContainer = document.getElementById('alertContainer');
+        if (!alertContainer) return;
+
+        const alert = document.createElement('div');
+        alert.className = `alert alert-${type === 'success' ? 'success' : 'danger'} alert-dismissible fade show`;
+        alert.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        `;
+
+        alertContainer.innerHTML = '';
+        alertContainer.appendChild(alert);
+
+        // Auto-cerrar después de 5 segundos
+        setTimeout(() => {
+            alert.classList.remove('show');
+            setTimeout(() => alert.remove(), 300);
+        }, 5000);
+    }
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    window.authManager = new AuthManager();
+});

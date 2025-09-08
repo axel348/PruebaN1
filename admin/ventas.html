@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas - Panel de Administración | Barber Legacy</title>
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- CSS personalizado -->
+    <link href="../css/admin.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="img.png/ChatGPT Image 4 sept 2025, 19_46_22.png" alt="Barber Legacy Logo" class="sidebar-logo">
+                <h3 class="admin-name">Admin Panel</h3>
+                <p class="admin-role">Administrador</p>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="index.html" class="menu-item">
+                    <i class="fas fa-dashboard"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="ventas.html" class="menu-item active">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Ventas</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-box"></i>
+                    <span>Productos</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-users"></i>
+                    <span>Clientes</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Configuración</span>
+                </a>
+                <a href="login.html" class="menu-item">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-content">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar ventas...">
+                </div>
+                <div class="header-right">
+                    <div class="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="img.png/ChatGPT Image 4 sept 2025, 19_46_22.png" alt="Admin Profile" class="profile-img">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Contenido Principal -->
+        <main class="admin-main">
+            <h1 class="section-title">Gestión de Ventas</h1>
+
+            <!-- Estadísticas de Ventas -->
+            <div class="dashboard-cards">
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3 class="card-title">Ventas Totales</h3>
+                    <p class="card-value">$15,890.00</p>
+                    <span class="card-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> +15% vs mes anterior
+                    </span>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3 class="card-title">Pedidos del Mes</h3>
+                    <p class="card-value">124</p>
+                    <span class="card-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> +8% vs mes anterior
+                    </span>
+                </div>
+                <div class="dashboard-card">
+                    <div class="card-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3 class="card-title">Clientes Nuevos</h3>
+                    <p class="card-value">45</p>
+                    <span class="card-trend trend-up">
+                        <i class="fas fa-arrow-up"></i> +12% vs mes anterior
+                    </span>
+                </div>
+            </div>
+
+            <!-- Tabla de Ventas -->
+            <div class="admin-table">
+                <div class="table-header">
+                    <h2 class="table-title">Últimas Ventas</h2>
+                    <button class="btn btn-primary-admin">
+                        <i class="fas fa-plus"></i> Nueva Venta
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID Pedido</th>
+                                <th>Cliente</th>
+                                <th>Productos</th>
+                                <th>Fecha</th>
+                                <th>Total</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD001</td>
+                                <td>Juan Pérez</td>
+                                <td>Kit de Afeitado, Aceite para Barba</td>
+                                <td>05/09/2025</td>
+                                <td>$125.00</td>
+                                <td><span class="badge bg-success">Completado</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary-admin">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-primary-admin">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD002</td>
+                                <td>María González</td>
+                                <td>Magic Clip, Set de Peines</td>
+                                <td>05/09/2025</td>
+                                <td>$289.99</td>
+                                <td><span class="badge bg-warning">Pendiente</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary-admin">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-primary-admin">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD003</td>
+                                <td>Carlos Rodríguez</td>
+                                <td>Cera Nishman, Navaja Profesional</td>
+                                <td>04/09/2025</td>
+                                <td>$75.50</td>
+                                <td><span class="badge bg-success">Completado</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary-admin">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-primary-admin">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD004</td>
+                                <td>Ana Martínez</td>
+                                <td>Clipper JRL Onyx</td>
+                                <td>04/09/2025</td>
+                                <td>$199.99</td>
+                                <td><span class="badge bg-warning">Pendiente</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary-admin">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-primary-admin">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#ORD005</td>
+                                <td>Roberto Díaz</td>
+                                <td>Kit de Afeitado Premium</td>
+                                <td>03/09/2025</td>
+                                <td>$150.00</td>
+                                <td><span class="badge bg-success">Completado</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary-admin">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-primary-admin">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-footer p-3">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-end mb-0">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Siguiente</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>
